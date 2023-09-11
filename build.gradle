@@ -1,9 +1,24 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'com.github.dimavrb'
 version = '1.0-SNAPSHOT'
+
+allure {
+    report {
+        version.set("2.24.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5{
+                adapterVersion.set("2.24.0")
+            }
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -13,7 +28,9 @@ dependencies {
     testImplementation (
             'com.codeborne:selenide:6.17.2',
             'org.junit.jupiter:junit-jupiter:5.10.0',
-            'io.qameta.allure:allure-selenide:2.24.0'
+            'io.qameta.allure:allure-selenide:2.24.0',
+            'org.slf4j:slf4j-simple:2.0.7'
+
 
     )
 }

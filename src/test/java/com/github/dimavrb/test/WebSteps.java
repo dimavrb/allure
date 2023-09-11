@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Selenide.$;
 public class WebSteps {
     RepositoryMainPage repositoryMainPage = new RepositoryMainPage();
 
-    @Step("Open Issues tab")
+    @Step("Переход на таб с issue")
     public void openIssuesTab() {
         $("#issues-tab").click();
     }
 
-    @Step("Check name issue")
+    @Step("Проверка имени задачи")
     public void checkIssueName(String value) {
         repositoryMainPage.issueLink.shouldHave(text(value));
     }
