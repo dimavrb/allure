@@ -1,8 +1,7 @@
 package com.github.dimavrb.test;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
+import com.github.dimavrb.pages.RepositoryIssueTab;
 import com.github.dimavrb.pages.RepositoryMainPage;
-import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,15 +13,16 @@ public class IssueTest extends TestBase {
     String issueName = "TestIssue";
 
     RepositoryMainPage repositoryMainPage = new RepositoryMainPage();
+    RepositoryIssueTab repositoryIssueTab = new RepositoryIssueTab();
 
     WebSteps steps = new WebSteps();
 
     @Test
     @DisplayName("Проверка задачи в GitHub")
     void checkIssueTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
         repositoryMainPage.clickToIssueTab();
-        repositoryMainPage.assertIssueName(issueName);
+        repositoryIssueTab.assertIssueName(issueName);
 
     }
 
@@ -30,9 +30,8 @@ public class IssueTest extends TestBase {
     @Test
     @DisplayName("Проверка задачи через lambda")
     void checkIssueLambdaTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Переход на таб с issue", () -> repositoryMainPage.clickToIssueTab());
-        step("Проверка имени задачи ", () -> repositoryMainPage.assertIssueName(issueName));
+        step("Проверка имени задачи ", () -> repositoryIssueTab.assertIssueName(issueName));
 
 
     }
@@ -40,7 +39,7 @@ public class IssueTest extends TestBase {
     @Test
     @DisplayName("Проверка задачи через step")
     void checkIssueStepTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+
         steps.openIssuesTab();
         steps.checkIssueName(issueName);
 

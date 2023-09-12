@@ -2,13 +2,10 @@ package com.github.dimavrb.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RepositoryMainPage {
-    public SelenideElement
-            issueTab = $("#issues-tab"),
-            issueLink = $("#issue_1_link");
+    public SelenideElement issueTab = $("#issues-tab");
 
 
     public RepositoryMainPage clickToIssueTab() {
@@ -19,10 +16,4 @@ public class RepositoryMainPage {
     }
 
 
-    public RepositoryMainPage assertIssueName(String value) {
-
-        issueLink.shouldHave(text(value));
-        return this;
-
-    }
 }
