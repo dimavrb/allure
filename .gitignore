@@ -70,3 +70,6 @@ bin/
 .DS_Store
 /gradle/
 >>>>>>> e396c68 (FirstCommit)
+/notification/config.json
+/notification/draft.txt
+/notification/telegram.json

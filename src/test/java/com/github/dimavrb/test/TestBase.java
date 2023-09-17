@@ -15,8 +15,9 @@ public class TestBase {
     static void beforeAll() {
         Configuration.baseUrl = "https://github.com/dimavrb/";
         Configuration.browserSize = "1920x1080";
-        Configuration.browser = "firefox";
+        Configuration.browser = "chrome";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
     }
 
